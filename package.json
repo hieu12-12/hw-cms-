@@ -1,0 +1,28 @@
+{
+  "name": "hw-cms",
+  "version": "1.0.0",
+  "description": "Employee Content Management System",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "install": "npm install dotenv inquirer pg chalk",
+    "build": "npx tsc",
+    "start": "node dist/index.js",
+    "fast start": "npx ts-node src/index.ts"
+  },
+  "type": "module",
+  "author": "Hieu Tran",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "dotenv": "^16.4.7",
+    "inquirer": "^12.3.2",
+    "pg": "^8.13.1",
+    "pg-pool": "^3.7.0"
+  },
+  "devDependencies": {
+    "@types/pg-pool": "^2.0.6",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
+  }
+}
