@@ -56,7 +56,7 @@ export const mainMenu = async () => {
             await deleteSubmenu();
             break;
         case 'Exit Application':
-            console.log('Thank you for choosing EMS. Goodbye!');
+            console.log('Thank you for choosing CMS. Goodbye!');
             process.exit();
     }
 
