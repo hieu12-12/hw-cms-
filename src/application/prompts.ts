@@ -1,6 +1,6 @@
 import inquirer from "inquirer";
 import { connection } from "../database/db.js";
-// add chalk to the menus for some color 
+
 
 export const mainMenu = async () => {
     const { choice } = await inquirer.prompt([
@@ -64,21 +64,25 @@ export const mainMenu = async () => {
 }
 
 const viewDepartments = async () => {
-    const departments = await connection.query('SELECT * FROM department');
+    const departments = await connection.query('SELECT * FROM public.department');
     console.table(departments.rows);
 };
+
 const viewRoles = async () => {
-    const roles = await connection.query('SELECT * FROM role');
+    const roles = await connection.query('SELECT * FROM public.role');
     console.table(roles.rows);
 };
+
 const viewEmployees = async () => {
-    const employees = await connection.query('SELECT * FROM employee');
+    const employees = await connection.query('SELECT * FROM public.employee');
     console.table(employees.rows);
 };
+
 const viewEmployeesByManager = async () => {
-    const employees = await connection.query('SELECT * FROM employee WHERE manager_id IS NOT NULL');
+    const employees = await connection.query('SELECT * FROM public.employee WHERE manager_id IS NOT NULL');
     console.table(employees.rows);
 };
+
 const addDepartment = async () => {
     const { name, id } = await inquirer.prompt([
         {
@@ -93,9 +97,10 @@ const addDepartment = async () => {
         }
     ]);
 
-    await connection.query('INSERT INTO department (name, id) VALUES ($1, $2)', [name, id]);
+    await connection.query('INSERT INTO public.department (name, id) VALUES ($1, $2)', [name, id]);
     console.log('Department added successfully.');
 };
+
 const addRole = async () => {
     const { title, salary, department_id } = await inquirer.prompt([
         {
@@ -115,9 +120,10 @@ const addRole = async () => {
         }
     ]);
 
-    await connection.query('INSERT INTO role (title, salary, department_id) VALUES ($1, $2, $3)', [title, salary, department_id]);
+    await connection.query('INSERT INTO public.role (title, salary, department_id) VALUES ($1, $2, $3)', [title, salary, department_id]);
     console.log('Role added successfully.');
 };
+
 const addEmployee = async () => {
     const { first_name, last_name, role_id, manager_id } = await inquirer.prompt([
         {
@@ -142,9 +148,10 @@ const addEmployee = async () => {
         }
     ]);
 
-    await connection.query('INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ($1, $2, $3, $4)', [first_name, last_name, role_id, manager_id]);
+    await connection.query('INSERT INTO public.employee (first_name, last_name, role_id, manager_id) VALUES ($1, $2, $3, $4)', [first_name, last_name, role_id, manager_id]);
     console.log('Employee added successfully.');
 };
+
 const updateEmployeeRole = async () => {
     const { employee_id, role_id } = await inquirer.prompt([
         {
@@ -159,9 +166,10 @@ const updateEmployeeRole = async () => {
         }
     ]);
 
-    await connection.query('UPDATE employee SET role_id = $1 WHERE id = $2', [role_id, employee_id]);
+    await connection.query('UPDATE public.employee SET role_id = $1 WHERE id = $2', [role_id, employee_id]);
     console.log('Employee role updated successfully.');
 };
+
 const updateEmployeeManager = async () => {
     const { employee_id, manager_id } = await inquirer.prompt([
         {
@@ -176,7 +184,7 @@ const updateEmployeeManager = async () => {
         }
     ]);
 
-    await connection.query('UPDATE employee SET manager_id = $1 WHERE id = $2', [manager_id, employee_id]);
+    await connection.query('UPDATE public.employee SET manager_id = $1 WHERE id = $2', [manager_id, employee_id]);
     console.log('Employee manager updated successfully.');
 };
 
@@ -216,9 +224,10 @@ const deleteDepartment = async () => {
         }
     ]);
 
-    await connection.query('DELETE FROM department WHERE id = $1', [id]);
+    await connection.query('DELETE FROM public.department WHERE id = $1', [id]);
     console.log('Department deleted successfully.');
 };
+
 const deleteRole = async () => {
     const { id } = await inquirer.prompt([
         {
@@ -228,9 +237,10 @@ const deleteRole = async () => {
         }
     ]);
 
-    await connection.query('DELETE FROM role WHERE id = $1', [id]);
+    await connection.query('DELETE FROM public.role WHERE id = $1', [id]);
     console.log('Role deleted successfully.');
 };
+
 const deleteEmployee = async () => {
     const { id } = await inquirer.prompt([
         {
@@ -240,6 +250,6 @@ const deleteEmployee = async () => {
         }
     ]);
 
-    await connection.query('DELETE FROM employee WHERE id = $1', [id]);
+    await connection.query('DELETE FROM public.employee WHERE id = $1', [id]);
     console.log('Employee deleted successfully.');
 };
