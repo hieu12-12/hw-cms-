@@ -1,28 +1,32 @@
 {
-  "name": "hw-cms",
-  "version": "1.0.0",
-  "description": "Employee Content Management System",
-  "main": "index.js",
-  "scripts": {
-    "test": "test",
-    "install": "npm install dotenv inquirer pg chalk",
-    "build": "npx tsc",
-    "start": "node dist/index.js",
-    "fast start": "npx ts-node src/index.ts"
-  },
-  "type": "module",
-  "author": "Hieu Tran",
-  "license": "ISC",
   "dependencies": {
     "chalk": "^5.4.1",
     "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "figlet": "^1.8.0",
     "inquirer": "^12.4.2",
     "pg": "^8.13.3",
-    "pg-pool": "^3.7.0"
+    "tsc": "^2.0.4"
   },
+  "name": "sqlemployeetracker",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "scripts": {
+    "start": "ts-node index.ts",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
-    "@types/pg-pool": "^2.0.6",
+    "@types/express": "^5.0.0",
+    "@types/figlet": "^1.7.0",
+    "@types/inquirer": "^9.0.7",
+    "@types/node": "^22.13.9",
+    "@types/pg": "^8.11.11",
     "ts-node": "^10.9.2",
-    "typescript": "^5.7.2"
-  }
+    "typescript": "^5.8.2"
+  },
+  "description": "Employee Manager is a command-line interface (CLI) application that allows business owners to view and manage their company's employee database. Users can view departments, roles, and employees, as well as add new entries and update employee roles."
 }
