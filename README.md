@@ -2,7 +2,7 @@
 
 ## Description
 
-Employee Manager is a command-line interface (CLI) application that allows business owners to view and manage their company's employee database. Users can view departments, roles, and employees, as well as add new entries and update employee roles.
+Employee Manager is a command-line interface (CLI) application that allows business owners to view and manage their company's employee database. Users can view departments, roles, and employees, as well as add new entries and update employee roles
 
 ## Table of Contents
 
