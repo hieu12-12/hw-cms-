@@ -148,18 +148,20 @@ Employee Manager is a command-line interface (CLI) application that allows busin
 4. Create a `.env` file in the root directory and add your PostgreSQL credentials:
 
     ```env
-    DB_USER=your_username
-    DB_PASSWORD=your_password
-    DB_HOST=localhost
-    DB_NAME=your_database_name
+    PORT=3001
+    DB_USER=postgres
+    DB_PASSWORD=YOUR_PASSWORD
     DB_PORT=5432
+    DB_HOST=localhost
+    DB_NAME=employee_manager_db
+
     ```
 
 5. Set up the database:
 
     ```bash
     psql -U postgres -f db/schema.sql
-    psql -U postgres -f db/seed.sql
+    psql -U postgres -f db/seeds.sql
     ```
 
 ## Usage
