@@ -159,10 +159,11 @@ Employee Manager is a command-line interface (CLI) application that allows busin
 
 5. Set up the database:
 
-    ```bash
+    bash: 
+    
     psql -U postgres -f db/schema.sql
     psql -U postgres -f db/seeds.sql
-    ```
+    
 
 ## Usage
 
